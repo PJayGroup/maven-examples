@@ -7,13 +7,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>employee</name>
-<!-- 	<modules>
+	<!-- 	<modules>
 		<module>employee-common</module>
 		<module>employee-service</module>
 		<module>employee-reports</module>
 		<module>employee-assembler</module>
 	</modules> -->
-	
+
 	<!-- https://maven.apache.org/plugins/maven-eclipse-plugin/reactor.html 
 		http://maven.apache.org/archetype/maven-archetype-plugin/examples/create-multi-module-project.html 
 		http://maven.apache.org/archetype/maven-archetype-plugin/advanced-usage.html 
@@ -21,13 +21,14 @@
 
 	<!-- http://maven.apache.org/guides/introduction/introduction-to-profiles.html 
 		http://stackoverflow.com/questions/11824328/default-build-profile-for-maven -->
-		
+
 	<!-- http://stackoverflow.com/questions/21053334/maven-need-to-create-ear-bundle -->
 
 	<profiles>
 		<profile>
 			<id>srv</id>
 			<activation>
+				<activeByDefault>true</activeByDefault><!-- This profile runs by default when no profile id parameters passed in mvn build -->
 				<property>
 					<name>env</name>
 					<value>srv</value>
@@ -54,5 +55,5 @@
 			</modules>
 		</profile>
 	</profiles>
-	
+
 </project>

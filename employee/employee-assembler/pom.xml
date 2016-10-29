@@ -12,8 +12,10 @@
 
 	<profiles>
 		<profile>
-			<id>asmb-srv</id>
+			<!-- <id>asmb-srv</id> -->
+			<id>srv</id>
 			<activation>
+				<activeByDefault>true</activeByDefault><!-- This profile runs by default when no profile id parameters passed in mvn build -->
 				<property>
 					<name>env</name>
 					<value>asmb-srv</value>
@@ -48,7 +50,8 @@
 			</build>
 		</profile>
 		<profile>
-			<id>asmb-rpt</id>
+			<!-- <id>asmb-rpt</id> -->
+			<id>rpt</id>
 			<activation>
 				<property>
 					<name>env</name>
