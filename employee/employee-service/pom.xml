@@ -15,6 +15,12 @@
 	<name>employee-service Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		<!-- employee common dependency -->
+		<dependency>
+			<groupId>org.pjaygroup</groupId>
+			<artifactId>employee-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

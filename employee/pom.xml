@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.pjaygroup</groupId>
-  <artifactId>employee</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>employee</name>
-  <modules>
-  	<module>employee-common</module>
-    <module>employee-service</module>
-    <module>employee-reports</module>
-    <module>employee-assembler</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.pjaygroup</groupId>
+	<artifactId>employee</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>employee</name>
+<!-- 	<modules>
+		<module>employee-common</module>
+		<module>employee-service</module>
+		<module>employee-reports</module>
+		<module>employee-assembler</module>
+	</modules> -->
+	
+	<!-- https://maven.apache.org/plugins/maven-eclipse-plugin/reactor.html 
+		http://maven.apache.org/archetype/maven-archetype-plugin/examples/create-multi-module-project.html 
+		http://maven.apache.org/archetype/maven-archetype-plugin/advanced-usage.html 
+		http://stackoverflow.com/questions/6328778/how-to-create-an-empty-multi-module-maven-project -->
+
+	<!-- http://maven.apache.org/guides/introduction/introduction-to-profiles.html 
+		http://stackoverflow.com/questions/11824328/default-build-profile-for-maven -->
+		
+	<!-- http://stackoverflow.com/questions/21053334/maven-need-to-create-ear-bundle -->
+
+	<profiles>
+		<profile>
+			<id>srv</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>srv</value>
+				</property>
+			</activation>
+			<modules>
+				<module>employee-common</module>
+				<module>employee-service</module>
+				<module>employee-assembler</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>rpt</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>rpt</value>
+				</property>
+			</activation>
+			<modules>
+				<module>employee-common</module>
+				<module>employee-reports</module>
+				<module>employee-assembler</module>
+			</modules>
+		</profile>
+	</profiles>
+	
 </project>
